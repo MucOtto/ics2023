@@ -1,5 +1,5 @@
 STUID = 221220000
-STUNAME = 张三
+STUNAME = 王嘉毅
 
 # DO NOT modify the following code!!!
 
