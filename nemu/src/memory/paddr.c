@@ -52,6 +52,7 @@ void init_mem() {
 
 word_t paddr_read(paddr_t addr, int len) {
   if (likely(in_pmem(addr))) return pmem_read(addr, len);
+  // 不在物理内存范围内 并且如果有CONFIG DEVICE 则假定地址属于内存映射 I/O（MMIO）区域，从设备读取
   IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));
   out_of_bound(addr);
   return 0;
